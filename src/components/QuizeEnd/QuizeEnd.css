@@ -1,0 +1,45 @@
+.QuizeEnd {
+  padding: 20px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.QuizeEnd > ul {
+  list-style: none;
+}
+
+.QuizeEnd > ul > li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.QuizeEnd > ul > li > i {
+  margin-left: 10px;
+  text-align: center;
+}
+
+.QuizeEnd > p {
+  margin: 10px 0px;
+}
+
+.done {
+  color: rgb(44, 248, 44);
+  margin-left: 10px;
+  padding: 1px;
+  border: 3px solid rgb(44, 248, 44);
+  border-radius: 100%;
+  font-weight: bold;
+}
+
+.close {
+  color: red;
+  margin-left: 10px;
+  padding: 1px;
+  border: 3px solid red;
+  border-radius: 100%;
+  font-weight: bold;
+}

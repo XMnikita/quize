@@ -1,0 +1,22 @@
+.QuizeListItem {
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  transition: background, transform 0.3s, box-shadow 0.3s;
+}
+
+.QuizeListItem:hover {
+  cursor: pointer;
+  background: rgba(198, 118, 230, 0.3);
+  transform: scale(1.015);
+  box-shadow: 0 0 4px 2px #ccc;
+}
+
+.QuizeListItem.wrong {
+  background: rgba(255, 48, 48, 0.7);
+}
+
+.QuizeListItem.right {
+  background: rgba(74, 246, 103, 0.7);
+}

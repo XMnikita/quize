@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.Quize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+  background: linear-gradient(90deg, #5041b2 0%, #7969e6 100%);
+  font-family: 'Roboto', 'Times New Roman', Times, serif;
+  color: #fff;
+  font-size: 16px;
+}
+
+.QuizeWrapper > h1 {
+  color: #fff;
+  margin: 10px;
+}
+
+.QuizeWrapper {
+  width: 90vw;
+}

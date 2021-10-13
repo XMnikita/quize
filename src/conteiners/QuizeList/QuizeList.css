@@ -1,0 +1,33 @@
+.QuizeList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background: linear-gradient(90deg, rgb(48, 39, 163) 0%, #564be9 100%);
+  color: white;
+  font-family: 'Roboto', 'serif';
+}
+
+.QuizeList h1 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.QuizeList > ul {
+  list-style: none;
+}
+
+.QuizeList > ul > li {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.QuizeList > ul > li > a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s ease-in;
+}
+
+.QuizeList > ul > li > a:hover {
+  color: lightgrey;
+}
