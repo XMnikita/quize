@@ -1,0 +1,27 @@
+.QuizeCreator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(
+    180deg,
+    rgb(93, 212, 190) 0%,
+    rgb(21, 148, 150) 100%
+  );
+  flex-grow: 1;
+  color: white;
+  font-family: 'Roboto', 'serif';
+}
+
+.QuizeCreator h1 {
+  margin-bottom: 20px;
+}
+
+.QuizeCreator form {
+  width: 50%;
+  min-width: 700px;
+  padding: 10px 20px;
+  background: #eee;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}

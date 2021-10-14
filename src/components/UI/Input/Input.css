@@ -13,7 +13,7 @@
 .Input > input {
   display: block;
   box-sizing: border-box;
-  border: 1ps solid #bebebe;
+  border: 1px solid #bebebe;
   padding: 7px;
   margin: 0 0 5px;
   width: 100%;
