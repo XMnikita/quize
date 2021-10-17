@@ -1,24 +1,56 @@
 import React, { Component } from 'react'
 import './QuizeList.css'
 import { NavLink } from 'react-router-dom'
+import Loader from '../../components/UI/Loader/Loader'
 
 class QuizeList extends Component {
+  state = {
+    quizes: [],
+    isLoading: true,
+  }
+
   renderQuizeList() {
-    const list = [1, 2, 3]
-    return list.map((el, index) => {
+    const list = this.state.quizes
+    return list.map((el) => {
       return (
-        <li key={index}>
-          <NavLink to={'/quize/' + el}>{el}. Quize</NavLink>
+        <li key={el.id}>
+          <NavLink to={'/quize/' + el.id}>{el.name}</NavLink>
         </li>
       )
     })
+  }
+
+  // ДОМ уже прогружен и можно изменять значения
+  async componentDidMount() {
+    try {
+      const response = await fetch(
+        'https://react-quize-1a8d0-default-rtdb.europe-west1.firebasedatabase.app/quizes.json'
+      )
+      const objQuizes = JSON.parse(await response.text())
+
+      const quizes = []
+
+      Object.keys(objQuizes).forEach((key, index) => {
+        quizes.push({
+          id: key,
+          name: `${index + 1}. Quize`,
+        })
+      })
+
+      this.setState({
+        quizes,
+        isLoading: false,
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
     return (
       <div className="QuizeList">
         <h1>Quize List:</h1>
-        <ul>{this.renderQuizeList()}</ul>
+        {this.state.isLoading ? <Loader /> : <ul>{this.renderQuizeList()}</ul>}
       </div>
     )
   }

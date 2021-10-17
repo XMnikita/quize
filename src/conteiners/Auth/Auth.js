@@ -11,6 +11,7 @@ function validateEmail(email) {
 
 class Auth extends Component {
   state = {
+    formValid: false,
     formControls: {
       email: {
         value: '',
@@ -42,14 +43,17 @@ class Auth extends Component {
   }
 
   isValidAuth() {
+    let formValid = true
     const formControls = { ...this.state.formControls }
     const email = { ...formControls.email }
     const password = { ...formControls.password }
     if (!validateEmail(email.value)) {
       email.valid = false
+      formValid = false
     }
     if (password.value.trim().length < 6) {
       password.valid = false
+      formValid = false
     }
 
     formControls.email = email
@@ -57,15 +61,43 @@ class Auth extends Component {
 
     this.setState({
       formControls,
+      formValid,
     })
+    return formValid
   }
 
-  signInHandler = (event) => {
-    this.isValidAuth()
+  signInHandler = async (event) => {
+    if (this.isValidAuth()) {
+      const url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDsyiW2BP4wsSINqaLqAFP_TUfbOYdIJB0'
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: this.state.formControls.email.value,
+          password: this.state.formControls.password.value,
+          returnSecureToken: true,
+        }),
+      })
+      console.log(await response.text())
+    }
   }
 
-  signUpHandler = (event) => {
-    this.isValidAuth()
+  signUpHandler = async (event) => {
+    if (this.isValidAuth()) {
+      const url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDsyiW2BP4wsSINqaLqAFP_TUfbOYdIJB0'
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: this.state.formControls.email.value,
+          password: this.state.formControls.password.value,
+          returnSecureToken: true,
+        }),
+      })
+      console.log(await response.text())
+    }
   }
 
   onSubmitHandler(event) {

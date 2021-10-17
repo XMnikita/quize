@@ -141,9 +141,26 @@ class QuizeCreator extends Component {
     }
   }
 
-  createQuizeHandler = () => {
-    // TODO BackEnd
-    console.log(this.state.quize)
+  createQuizeHandler = async () => {
+    try {
+      const response = await fetch(
+        'https://react-quize-1a8d0-default-rtdb.europe-west1.firebasedatabase.app/quizes.json',
+        {
+          method: 'POST',
+          body: JSON.stringify(this.state.quize),
+          headers: { 'Content-Type': 'application/json' },
+        }
+      )
+      // console.log(response)
+
+      this.setState({
+        rightAnswearId: 1,
+        quize: [],
+        formControls: createFormControls(),
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
