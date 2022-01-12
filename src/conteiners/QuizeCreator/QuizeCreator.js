@@ -144,7 +144,7 @@ class QuizeCreator extends Component {
   createQuizeHandler = async () => {
     try {
       const response = await fetch(
-        'https://react-quize-1a8d0-default-rtdb.europe-west1.firebasedatabase.app/quizes.json',
+        'https://quize-ce21d-default-rtdb.europe-west1.firebasedatabase.app/quizes.json',
         {
           method: 'POST',
           body: JSON.stringify(this.state.quize),

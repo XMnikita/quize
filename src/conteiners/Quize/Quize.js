@@ -51,7 +51,7 @@ class Quize extends Component {
   async componentDidMount() {
     // console.log(this.props.match.params.id)
     const url =
-      'https://react-quize-1a8d0-default-rtdb.europe-west1.firebasedatabase.app/quizes/' +
+      'https://quize-ce21d-default-rtdb.europe-west1.firebasedatabase.app/quizes/' +
       this.props.match.params.id +
       '.json'
     const response = await fetch(url)
